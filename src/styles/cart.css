@@ -1,0 +1,55 @@
+.cart-table {
+  width: 95vw;
+  margin: 5vh auto;
+}
+
+.each-item {
+  height: 100px;
+}
+
+.img-container {
+  width: 10%;
+  height: 20%;
+}
+
+.item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.item-name {
+  width: 30%;
+}
+
+.quantity-data Button {
+  margin: 0vh 2vw;
+}
+
+.empty-message {
+  width: 50vw;
+  text-align: center;
+  margin: 10vh auto;
+}
+
+.cart-bottom {
+  width: 20vw;
+  margin-left: 80vw;
+}
+
+@media screen and (max-width: 720px) {
+  .cart-table {
+    width: 100vw;
+    margin: 5vh auto;
+  }
+  .item-name {
+    width: 10%;
+  }
+
+  .product-total {
+    width: 10%;
+  }
+  .quantity-data Button {
+    margin: 0;
+  }
+}
