@@ -1,14 +1,20 @@
 import React from "react";
+
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import {
   addToCart,
   addToWishList,
   removeFromWishList,
+  decreaseQuantity,
+  increaseQuantity,
+  removeItemFromCart,
 } from "../redux/actions.js";
-import "../styles/productcard.css";
+
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import "../styles/productcard.css";
 
 export default function ProductCard({ product }) {
   const dispatch = useDispatch();
@@ -26,6 +32,22 @@ export default function ProductCard({ product }) {
     dispatch(addToCart(product));
   };
 
+  const decrementQuantity = (product) => {
+    if (product.quantity > 1) {
+      dispatch(decreaseQuantity(product));
+    } else {
+      dispatch(removeItemFromCart(product));
+    }
+  };
+
+  const incrementQuantity = (product) => {
+    dispatch(increaseQuantity(product));
+  };
+
+  const removeFromCart = (product) => {
+    dispatch(removeItemFromCart(product));
+  };
+
   return (
     <Card className="card-container">
       {/* <h2>{product.title}</h2> */}
@@ -37,41 +59,62 @@ export default function ProductCard({ product }) {
         <Card.Title
           className="product-name"
           onClick={() =>
-            navigate("/productdetails", { state: { product: product } })
+            navigate("/product-details", { state: { product: product } })
           }
         >
-          {product.title}
+          {product.title.toUpperCase()}
         </Card.Title>
-        <p className="product-price">${product.price}</p>
-        <Card.Text className="productdetails-truncate">
-          {product.description}
-        </Card.Text>
-        <div className="btns-container">
-          <Button
-            variant="dark"
-            size="md"
-            className="btn-addtocart"
-            onClick={() => addProductToCart(product)}
-          >
-            Add To Cart
-          </Button>
 
-          {product.inwishlist === "false" ? (
-            <div className="wishlist-btn">
+        <Card.Text className="product-price">
+          ${product.price}
+          {/* {product.description} */}
+        </Card.Text>
+
+        {window.location.pathname !== "/cart" ? (
+          <div className="btns-container">
+            <Button
+              variant="dark"
+              size="md"
+              className="btn-addtocart"
+              onClick={() => {
+                addProductToCart(product);
+              }}
+            >
+              Add To Cart
+            </Button>
+
+            {product.inwishlist === "false" ? (
               <i
-                className="fa-regular fa-heart fa-lg"
+                className="fa-regular fa-heart fa-xl"
                 onClick={() => addProdToWishList(product)}
               ></i>
-            </div>
-          ) : (
-            <div className="wishlist-btn">
+            ) : (
               <i
-                className="fa-solid fa-heart fa-lg"
+                className="fa-solid fa-heart fa-xl"
                 onClick={() => removeFromProdWishList(product)}
               ></i>
+            )}
+          </div>
+        ) : (
+          <>
+            <div className="btns-container">
+              <Button onClick={() => decrementQuantity(product)} variant="dark">
+                -
+              </Button>
+              {product.quantity}
+              <Button onClick={() => incrementQuantity(product)} variant="dark">
+                +
+              </Button>
+
+              <i
+                className="fa-solid fa-trash"
+                onClick={() => removeFromCart(product)}
+              ></i>
             </div>
-          )}
-        </div>
+
+            <div className="text-left mt-1 ">Sub Total: ${product.total}</div>
+          </>
+        )}
       </Card.Body>
     </Card>
   );

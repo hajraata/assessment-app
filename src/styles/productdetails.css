@@ -8,7 +8,7 @@
 
 .product-img-container {
   width: 50%;
-  height: 80%;
+  height: 60%;
 }
 
 .product-img {
@@ -19,6 +19,7 @@
 
 .product-details-container {
   width: 40%;
+  margin: auto;
 }
 
 @media screen and (max-width: 1000px) {

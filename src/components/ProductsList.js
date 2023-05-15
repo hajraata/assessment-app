@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import ProductCard from "./ProductCard";
 import { storeProducts } from "../redux/actions.js";
-
 import "../styles/productslist.css";
 
 export default function ProductsList() {
   const products = useSelector((state) => state.products.products);
   const wishlist = useSelector((state) => state.products.wishList);
+
   const selectedcategory = useSelector(
     (state) => state.products.selectedcategory
   );
@@ -53,10 +55,12 @@ export default function ProductsList() {
   }, [products, wishlist]);
 
   return (
-    <div className="products-container">
+    <Row className="products-container">
       {newProdsArr.map((product) => (
-        <ProductCard product={product} key={product.id} />
+        <Col sm={6} lg={4} key={product.id}>
+          <ProductCard product={product} />
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 }

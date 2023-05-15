@@ -1,20 +1,11 @@
 const initialState = {
   cart: [],
-  cartTotal: 0,
+  // cartTotal: 0,
 };
 
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      // if (state.cart.length === 0) {
-      //   console.log("here");
-      //   return {
-      //     ...state,
-      //     cart: [
-      //       { ...action.payload, quantity: 1, total: action.payload.price },
-      //     ],
-      //   };
-      // } else {
       const inCart = state.cart.find((item) =>
         item.id === action.payload.id ? true : false
       );
@@ -66,11 +57,11 @@ export const cartReducer = (state = initialState, action) => {
 
       return { ...state, cart: [...updatedCart] };
 
-    case "UPDATE_CART_TOTAL":
-      return {
-        ...state,
-        cartTotal: action.payload,
-      };
+    // case "UPDATE_CART_TOTAL":
+    //   return {
+    //     ...state,
+    //     cartTotal: action.payload,
+    //   };
 
     case "REMOVE_FROM_CART":
       const removed = state.cart.filter(

@@ -1,16 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import ProductCard from "../components/ProductCard";
 
 export default function Wishlist() {
   const wishlist = useSelector((state) => state.products.wishList);
 
   return wishlist.length > 0 ? (
-    <div className="products-container">
+    <Row className="products-container">
       {wishlist.map((product) => (
-        <ProductCard product={product} key={product.id} />
+        <Col sm={6} md={4} key={product.id}>
+          <ProductCard product={product} />
+        </Col>
       ))}
-    </div>
+    </Row>
   ) : (
     <div className="empty-message">
       <h6>Your Wishlist Is Empty</h6>

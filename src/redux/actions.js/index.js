@@ -1,3 +1,5 @@
+// Products Actions
+
 export const storeProducts = (products) => {
   return {
     type: "STORE_PRODUCTS",
@@ -5,12 +7,12 @@ export const storeProducts = (products) => {
   };
 };
 
-export const storeCategories = (categories) => {
-  return {
-    type: "STORE_CATEGORIES",
-    payload: categories,
-  };
-};
+// export const storeCategories = (categories) => {
+//   return {
+//     type: "STORE_CATEGORIES",
+//     payload: categories,
+//   };
+// };
 
 export const updateSelectedCategory = (category) => {
   return {
@@ -32,6 +34,8 @@ export const removeFromWishList = (product) => {
     payload: product,
   };
 };
+
+// Cart Actions
 
 export const addToCart = (product) => {
   return {
@@ -69,9 +73,9 @@ export const findProducts = (value) => {
   };
 };
 
-export const updateCartTotal = (value) => {
-  return {
-    type: "UPDATE_CART_TOTAL",
-    payload: value,
-  };
-};
+// export const updateCartTotal = (value) => {
+//   return {
+//     type: "UPDATE_CART_TOTAL",
+//     payload: value,
+//   };
+// };

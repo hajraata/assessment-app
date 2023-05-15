@@ -1,17 +1,16 @@
-.categories-container {
+/* .categories-container {
   width: 100vw;
-}
+} */
 
 .categories-list {
   display: flex;
-  width: 90vw;
   margin: auto;
   list-style-type: none;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
-@media screen and (max-width: 620px) {
+/* @media screen and (max-width: 620px) {
   .categories-list {
     width: 100vw;
   }
-}
+} */

@@ -1,7 +1,7 @@
 const initialState = {
   products: [],
   allProducts: [],
-  categories: [],
+  // categories: [],
   selectedcategory: "all",
   wishList: [],
 };
@@ -15,8 +15,8 @@ export const productsReducer = (state = initialState, action) => {
         allProducts: [...action.payload],
       };
 
-    case "STORE_CATEGORIES":
-      return { ...state, categories: [...action.payload] };
+    // case "STORE_CATEGORIES":
+    //   return { ...state, categories: [...action.payload] };
 
     case "UPDATE_SELECTED_CATEGORY":
       return { ...state, selectedcategory: action.payload };
@@ -33,9 +33,10 @@ export const productsReducer = (state = initialState, action) => {
 
     case "SEARCH_FOR_PRODUCT":
       let value = action.payload;
+      let tempProds = state.allProducts;
 
       if (value !== "") {
-        const searchResults = state.products.filter((product) =>
+        const searchResults = tempProds.filter((product) =>
           product.title.toLowerCase().includes(value.toLowerCase())
         );
 

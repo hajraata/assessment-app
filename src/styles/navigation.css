@@ -1,16 +1,7 @@
-.navigation-container {
-  display: flex;
-  justify-content: space-around;
-  color: white;
+.nav-font {
+  font-size: 0.75rem;
 }
 
-.brand-name {
-  font-size: 2rem;
-  color: white;
-}
-
-.brand-name:hover {
+.nav-home {
   cursor: pointer;
-  font-size: 2rem;
-  color: white;
 }
