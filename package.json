@@ -1,6 +1,7 @@
 {
   "name": "assessment-app",
   "version": "0.1.0",
+  "homepage": "https://hajraata.github.io/ecommerce-app/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
