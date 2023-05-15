@@ -19,7 +19,7 @@ export default function NavigationBar() {
     <>
       <Navbar bg="light" variant="light" className="d-flex px-4 nav-font">
         <Navbar.Brand
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/ecommerce-app")}
           className="flex-grow-1 nav-font nav-home"
         >
           WELCOME TO J.
