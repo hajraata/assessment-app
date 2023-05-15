@@ -12,7 +12,7 @@ export default function Navigation() {
     <BrowserRouter>
       <NavigationBar />
       <Routes>
-        <Route index element={<Home />} />
+        <Route path="/ecommerce-app" element={<Home />} />
         <Route path="/wish-list" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/product-details" element={<ProductDetails />} />
